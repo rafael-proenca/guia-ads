@@ -49,14 +49,18 @@ async function render_menu(url) {
 
 function toggleMenu() {
   const disciplina = document.getElementById("disciplina").value;
+  const botao = document.getElementById("menu-button")
 
+  if (disciplina !== "default") {
   //sidebarButtons.style.display = sidebarButtons.style.display === "none" ? "block" : "none";
   sidebarContent.style.width = sidebarContent.style.width === sidebarMaxSize ? "0px" : sidebarMaxSize;
-  
   sidebarContent.innerHTML =
     sidebarContent.style.width === sidebarMaxSize
       ? render_menu(`./static/pages/menu/${disciplina}.html`)
       : "";
+      
+  }
+  
 }
 
 function changeMenu(){

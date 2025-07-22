@@ -21,14 +21,14 @@
       <form id="formulario_menu" action="" onclick="changeMenu()">
        <label for="disciplina">Seletor de disciplinas:</label>
           <select id="disciplina" name="disciplina">
+            <option value="default" disabled selected>Selecione uma disciplina e clique no Menu</option>
             <option class="primeiro-periodo-disciplinas" value="cef">Carreira e futuro</option>
             <option class="primeiro-periodo-disciplinas" value="acso">Arquitetura de computadores e Sistemas Operacionais</option>
             <option class="primeiro-periodo-disciplinas" value="pdp">Práticas de Programação</option>
             <option class="primeiro-periodo-disciplinas" value="eds">Engenharia de Software</option>
-            <option class="primeiro-periodo-disciplinas" value="rdc">Redes de Computadores</option>
           </select>
         </form>
-      <button id="menu-button" onclick="toggleMenu()">Menu da disciplina</button>
+      <button id="menu-button" onclick="toggleMenu()"><< Menu da disciplina >></button>
     </header>
     <div class="container">
       <aside class="sidebar" id = "sidebar-conteudo">
@@ -45,7 +45,7 @@
         </article>
       </main>
     </div>
-    <footer>&#174;2025 Rafael Proença</footer>
+    <footer>&#174;2025 Rafael Proenca</footer>
     <script src="./static/js/scripts.js"></script>
   </body>
 </html>
