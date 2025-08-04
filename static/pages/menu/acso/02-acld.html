@@ -1,0 +1,75 @@
+<h1>Aritmética Computacional e Lógica Digital</h1>
+
+    <h2>01 - Sistema Binário</h2>
+    <p>O computador, por ser uma máquina eletrônica, representa todas as informações através de dois níveis de tensão, que correspondem aos dígitos <strong>0</strong> e <strong>1</strong>. Esse é o <strong>sistema binário</strong>, a linguagem fundamental da computação.</p>
+    <ul>
+        <li><strong>Bit e Byte:</strong> A menor unidade de informação é o <strong>bit</strong> (<em>binary digit</em>). Um conjunto de 8 bits forma um <strong>byte</strong>.</li>
+        <li><strong>Linguagem de Máquina:</strong> Programas escritos em linguagens de programação (como Python ou Java) são "traduzidos" (compilados) para sequências de zeros e uns, que é a linguagem que o processador entende.</li>
+        <li><strong>Álgebra Booleana:</strong> É a base matemática da computação, utilizando operações lógicas (E, OU, NÃO) que correspondem perfeitamente à lógica binária de verdadeiro/falso (1/0).</li>
+        <li><strong>Codificação de Caracteres:</strong> Padrões como <strong>ASCII</strong> e <strong>Unicode</strong> usam sequências de bits para representar letras, números e símbolos.</li>
+    </ul>
+
+    <h2>02 - Sistemas de Numeração e Conversão de Bases</h2>
+    <p>Além do binário (base 2) e do decimal (base 10) que usamos no dia a dia, a computação utiliza outras bases para representar números de forma mais compacta.</p>
+    <ul>
+        <li><strong>Bases Comuns:</strong>
+            <ul>
+                <li><strong>Binário (Base 2):</strong> Usa os algarismos 0 e 1.</li>
+                <li><strong>Octal (Base 8):</strong> Usa os algarismos de 0 a 7.</li>
+                <li><strong>Hexadecimal (Base 16):</strong> Usa os algarismos de 0 a 9 e as letras de A a F (para representar 10 a 15).</li>
+            </ul>
+        </li>
+        <li><strong>Conversão de Bases:</strong> É o processo de transformar um número de uma base para outra.
+            <ul>
+                <li><strong>Para Decimal:</strong> Multiplica-se cada dígito do número pela potência de sua base correspondente à sua posição e soma-se os resultados.</li>
+                <li><strong>De Decimal:</strong> Realizam-se divisões sucessivas do número pela nova base, e o resultado é composto pelo último quociente e pelos restos das divisões, lidos de baixo para cima.</li>
+                <li><strong>Entre Binário, Octal e Hexadecimal:</strong> A conversão pode ser feita diretamente agrupando-se os bits (3 para octal, 4 para hexadecimal).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>03 - Aritmética Computacional</h2>
+    <p>As operações aritméticas básicas (soma, subtração, multiplicação e divisão) podem ser realizadas diretamente nas bases binária, octal e hexadecimal, seguindo regras semelhantes às da base decimal.</p>
+    <ul>
+        <li><strong>Soma:</strong> Quando a soma dos dígitos em uma coluna atinge ou ultrapassa o valor da base, ocorre o "vai um" para a coluna seguinte.</li>
+        <li><strong>Subtração:</strong> Utiliza o conceito de "pedir emprestado" da coluna à esquerda, onde o valor emprestado é igual ao valor da base.</li>
+        <li><strong>Multiplicação e Divisão:</strong> Seguem lógicas análogas às da base decimal, mas podem ser complexas. Uma alternativa comum é converter os números para a base 10, realizar a operação e depois converter o resultado de volta para a base original.</li>
+    </ul>
+
+    <h2>04 - Portas Lógicas</h2>
+    <p>As portas lógicas são os blocos de construção fundamentais dos circuitos digitais. São componentes eletrônicos que executam operações lógicas básicas da Álgebra Booleana.</p>
+    <ul>
+        <li><strong>Porta AND (E):</strong> A saída é 1 somente se <strong>todas</strong> as entradas forem 1.</li>
+        <li><strong>Porta OR (OU):</strong> A saída é 1 se <strong>pelo menos uma</strong> das entradas for 1.</li>
+        <li><strong>Porta NOT (NÃO):</strong> Inverte a entrada. Se entra 1, sai 0; se entra 0, sai 1.</li>
+        <li><strong>Porta XOR (OU Exclusivo):</strong> A saída é 1 somente se as entradas forem <strong>diferentes</strong>.</li>
+        <li><strong>Porta NAND (NÃO E):</strong> É o inverso da porta AND. A saída é 0 somente se todas as entradas forem 1.</li>
+        <li><strong>Porta NOR (NÃO OU):</strong> É o inverso da porta OR. A saída é 1 somente se todas as entradas forem 0.</li>
+    </ul>
+
+    <h2>05 - Circuitos Lógicos</h2>
+    <p>Circuitos lógicos são combinações de portas lógicas projetadas para executar funções específicas, desde somar números até selecionar dados.</p>
+    <ul>
+        <li><strong>Tipos de Circuitos:</strong>
+            <ul>
+                <li><strong>Combinacional:</strong> A saída depende <strong>apenas</strong> das entradas atuais. Não possui memória (ex: uma calculadora).</li>
+                <li><strong>Sequencial:</strong> A saída depende das entradas atuais <strong>e</strong> do estado anterior do circuito. Possui memória (ex: um contador).</li>
+            </ul>
+        </li>
+        <li><strong>Exemplos de Circuitos Combinacionais:</strong>
+            <ul>
+                <li><strong>Somador Completo (Full Adder):</strong> Circuito que soma três bits (dois bits de entrada e um "vai um") e gera um resultado e um novo "vai um".</li>
+                <li><strong>Decodificador:</strong> Converte uma entrada binária de 'n' bits em uma única saída ativa entre 2^n saídas possíveis.</li>
+                <li><strong>Multiplexador (MUX):</strong> Funciona como um seletor, escolhendo uma de várias linhas de entrada para direcionar a uma única linha de saída.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Conclusão: Pontos Principais</h2>
+    <ul>
+        <li><strong>A Base de Tudo:</strong> O <strong>sistema binário</strong> é a linguagem fundamental dos computadores, representando dados e instruções como sequências de 0s e 1s.</li>
+        <li><strong>Múltiplas Representações:</strong> Sistemas como <strong>octal</strong> e <strong>hexadecimal</strong> são usados para representar dados binários de forma mais compacta e legível para humanos.</li>
+        <li><strong>Lógica em Hardware:</strong> A <strong>Álgebra Booleana</strong> é implementada fisicamente através de <strong>portas lógicas</strong>, que são os componentes mais básicos de um processador.</li>
+        <li><strong>Construindo Complexidade:</strong> As portas lógicas são combinadas para formar <strong>circuitos lógicos</strong> que executam desde operações aritméticas simples até tarefas complexas de processamento e controle.</li>
+        <li><strong>Do Bit ao Circuito:</strong> Há uma progressão clara desde o conceito abstrato do bit, passando pela sua manipulação com aritmética e lógica, até a sua implementação física em circuitos que formam o coração de todos os dispositivos digitais.</li>
+    </ul>
