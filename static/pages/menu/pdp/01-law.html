@@ -1,0 +1,110 @@
+<h1>Linguagens e Algoritmos para Web</h1>
+
+    <h2>01 - HTML5: A Estrutura da Web</h2>
+    <p>HTML (HyperText Markup Language) é a linguagem de marcação utilizada para criar a estrutura e o conteúdo das páginas web. A versão atual, HTML5, introduziu tags semânticas que dão mais significado ao conteúdo.</p>
+    <ul>
+        <li><strong>Estrutura Básica:</strong> Todo documento HTML possui uma estrutura essencial com <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> (para metadados como o título) e <code>&lt;body&gt;</code> (para o conteúdo visível).</li>
+        <li><strong>Tags Essenciais:</strong> Incluem títulos (<code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>), parágrafos (<code>&lt;p&gt;</code>), links (<code>&lt;a&gt;</code>), imagens (<code>&lt;img&gt;</code>) e listas (<code>&lt;ul&gt;</code> para não ordenadas e <code>&lt;ol&gt;</code> para ordenadas).</li>
+        <li><strong>Tags Semânticas:</strong> Elementos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code> e <code>&lt;footer&gt;</code> ajudam a organizar a página de forma lógica, melhorando a acessibilidade e a otimização para motores de busca (SEO).</li>
+    </ul>
+    <h3>Exemplo de Estrutura Básica HTML:</h3>
+    <pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Conteúdo Principal&lt;/h1&gt;
+    &lt;p&gt;Este é um parágrafo.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+    </pre>
+
+    <h2>02 - CSS3: A Estilização da Web</h2>
+    <p>CSS (Cascading Style Sheets) é a linguagem utilizada para estilizar os elementos HTML, controlando cores, fontes, espaçamentos e o layout da página.</p>
+    <ul>
+        <li><strong>Sintaxe:</strong> Uma regra CSS é formada por um <strong>seletor</strong> (que aponta para o elemento HTML a ser estilizado) e um bloco de declarações com pares de <strong>propriedade: valor;</strong>.</li>
+        <li><strong>Seletores Comuns:</strong> Os seletores podem ser por nome da tag (<code>p</code>), por classe (<code>.minha-classe</code>) ou por ID (<code>#meu-id</code>).</li>
+        <li><strong>Formas de Inclusão:</strong> O CSS pode ser aplicado de forma <strong>externa</strong> (arquivo .css separado, a melhor prática), <strong>interna</strong> (dentro da tag <code>&lt;style&gt;</code> no <code>&lt;head&gt;</code>) ou <strong>inline</strong> (direto no atributo <code>style</code> de um elemento).</li>
+        <li><strong>Box Model:</strong> Todo elemento HTML é tratado como uma caixa composta por quatro partes: o <strong>conteúdo</strong>, o <strong>padding</strong> (espaçamento interno), a <strong>border</strong> (borda) e a <strong>margin</strong> (espaçamento externo).</li>
+    </ul>
+    <h3>Exemplo de Sintaxe CSS:</h3>
+    <pre>
+<code>
+/* Seletor de tag */
+p {
+  color: green;
+  font-size: 16px;
+}
+
+/* Seletor de classe */
+.destaque {
+  background-color: yellow;
+}
+
+/* Seletor de ID */
+#titulo-principal {
+  text-align: center;
+}
+</code>
+    </pre>
+
+    <h2>03 - Algoritmos e JavaScript: A Lógica da Web</h2>
+    <p>JavaScript é a linguagem de programação que adiciona interatividade e comportamento dinâmico às páginas web. Sua lógica é baseada em algoritmos.</p>
+    <ul>
+        <li><strong>Algoritmo:</strong> É uma sequência de passos lógicos e finitos para resolver um problema. Em programação, o algoritmo é traduzido para uma linguagem que o computador entende.</li>
+        <li><strong>Variáveis:</strong> São "recipientes" para armazenar dados. Podem ser declaradas com <code>let</code> (para valores que podem mudar), <code>const</code> (para valores constantes) ou <code>var</code> (forma mais antiga, menos recomendada).</li>
+        <li><strong>Comandos de Entrada e Saída:</strong>
+            <ul>
+                <li><strong>Saída:</strong> <code>alert()</code> exibe uma caixa de alerta, e <code>console.log()</code> escreve informações no console do navegador (útil para depuração).</li>
+                <li><strong>Entrada:</strong> <code>prompt()</code> solicita que o usuário digite algo, e <code>confirm()</code> exibe uma caixa de diálogo de confirmação.</li>
+            </ul>
+        </li>
+        <li><strong>Operadores:</strong> Incluem os <strong>aritméticos</strong> (+, -, *, /), <strong>relacionais</strong> (==, >, <) e <strong>lógicos</strong> (&& para "E", || para "OU").</li>
+        <li><strong>Manipulação do DOM:</strong> O JavaScript pode interagir com a estrutura do HTML (o DOM - Document Object Model) para alterar conteúdo, estilos e atributos em resposta a eventos, como um clique de botão (<code>onclick</code>).</li>
+    </ul>
+    <h3>Exemplo Prático de HTML e JavaScript (Lâmpada):</h3>
+    <h4>HTML:</h4>
+    <pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;title&gt;Exemplo Lâmpada&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;O que o JavaScript pode fazer?&lt;/h2&gt;
+    &lt;button onclick="acendeLampada()"&gt;Acende Lâmpada&lt;/button&gt;
+    &lt;img id="imagem" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width:100px"&gt;
+    &lt;button onclick="apagaLampada()"&gt;Apaga Lâmpada&lt;/button&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+    </pre>
+    <h4>JavaScript (arquivo script.js):</h4>
+    <pre>
+<code>
+function acendeLampada() {
+  document.getElementById('imagem').src='https://www.w3schools.com/js/pic_bulbon.gif';
+}
+
+function apagaLampada() {
+  document.getElementById('imagem').src='https://www.w3schools.com/js/pic_bulboff.gif';
+}
+</code>
+    </pre>
+
+    <h2>Conclusão: Pontos Principais</h2>
+    <ul>
+        <li><strong>Tríade do Desenvolvimento Web:</strong> <strong>HTML</strong> estrutura o conteúdo, <strong>CSS</strong> define a aparência e <strong>JavaScript</strong> controla o comportamento e a interatividade.</li>
+        <li><strong>Semântica é Importante:</strong> Usar tags HTML semânticas torna o código mais claro, acessível e melhor para SEO.</li>
+        <li><strong>Separação de Responsabilidades:</strong> A melhor prática é manter o HTML, o CSS e o JavaScript em arquivos separados para facilitar a manutenção e a reutilização do código.</li>
+        <li><strong>Lógica Algorítmica:</strong> A base de toda interatividade criada com JavaScript é um algoritmo bem definido, que é a sequência de passos para resolver um problema.</li>
+        <li><strong>DOM como Ponte:</strong> O JavaScript interage com o HTML através do DOM, permitindo a criação de páginas dinâmicas e responsivas às ações do usuário.</li>
+    </ul>

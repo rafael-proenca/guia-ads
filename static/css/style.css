@@ -1,0 +1,126 @@
+/* Reseta margens e paddings padrão do navegador */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+@font-face {
+  font-family: "dxsyagidouble";
+  /* Nome amigável para sua fonte */
+  src: url("/fonts/dxsyagidouble.ttf");
+  /* Caminho para o arquivo de fonte */
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  /*font-size: 14px;*/
+
+  font-variation-settings: "wdth" 100;
+
+  padding: 2px;
+}
+
+
+p {
+  /*font-size: 20px ;*/
+}
+
+footer {
+  font-family: "dxsyagidouble", "Roboto", sans-serif;
+  color: #000055;
+  background-color: #ffffaa;
+  font-size: 20px;
+}
+
+header h1 {
+  font-family: "dxsyagidouble", "Roboto", sans-serif;
+  font-size: 40px;
+  font-weight: 100;
+}
+
+header div {
+  color: #000055;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffaa;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "menu main main main main"
+    "menu main main main main"
+    "menu main main main main";
+  background-color: #000055;
+  /*color: white;
+  background-color: blue;
+  z-index: 0;*/
+}
+
+.sidebar {
+  grid-area: menu;
+  padding: 0px;
+  width: 0px;
+  transition-duration: 0.5s;
+  /*display: none;*/
+  /*background-image: url("../images/grid1.jpg");*/
+  background-size: 16px 16px;
+  background-color: #ffffff;
+  background-image: linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+  
+ }
+
+.sidebar nav {
+  display: grid; 
+   
+}
+
+#article-content {
+  grid-area: main;
+  padding: 10px;
+
+  color: #ffffaa;
+}
+
+#formulario_menu {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+ul {
+  padding-left: 10px;
+}
+
+
+/*botôes de disciplina*/
+.cartucho {
+  
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  text-align:start;
+  max-width: 175px;
+  height: 100px;
+  background-color: #000000;
+
+
+}
+
+.cartucho-titulo {
+  width: 100%;
+
+  /*background-color: #FF0055;*/
+  background-size: 8px 8px;
+  background-color: #FF0055;
+  background-image: linear-gradient(to right, #000000 1px, transparent 1px),
+    linear-gradient(to bottom, #000000 1px, transparent 1px);
+  color: #FFFFFF;
+  padding-left: 5px;
+  padding-top: 5px;
+
+}
+
+.primeiro-periodo-disciplinas{
+  background-color: #00FFFF;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Guia descomplicado para analise e desenvolvimento de sistemas</h1>
+      </div>
+      <form id="formulario_menu" action="" onclick="changeMenu()">
+       <label for="disciplina">Seletor de disciplinas:</label>
+          <select id="disciplina" name="disciplina">
+            <option value="default" disabled selected>Selecione uma disciplina e clique no Menu</option>
+            <option class="primeiro-periodo-disciplinas" value="cef">Carreira e futuro</option>
+            <option class="primeiro-periodo-disciplinas" value="acso">Arquitetura de computadores e Sistemas Operacionais</option>
+            <option class="primeiro-periodo-disciplinas" value="pdp">Práticas de Programação</option>
+            <option class="primeiro-periodo-disciplinas" value="eds">Engenharia de Software</option>
+          </select>
+        </form>
+      <button id="menu-button" onclick="toggleMenu()"><< Menu da disciplina >></button>
+    </header>
+    <div class="container">
+      <aside class="sidebar" id = "sidebar-conteudo">
+        <nav>
+          
+        </nav>
+      </aside>
+
+      <main class="content">
+        <article id="article-content">
+          <h1>Seleção de disciplina</h1>
+          <p>
+            Selecione uma disciplina no <strong>Seletor de disciplinas</strong> e, em seguida, aperte o botão <strong>Menu da disciplina</strong> para navegar entre os diferentes assuntos.</p>
+        </article>
+      </main>
+    </div>
+    <footer>&#174;2025 Rafael Proenca</footer>
+    <script src="./static/js/scripts.js"></script>
+  </body>
+</html>
