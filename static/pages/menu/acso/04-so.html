@@ -1,0 +1,212 @@
+<h1>Sistemas operacionais</h1>
+<h2>Sistema Operacional</h2>
+<p>É o software mais importante pois <b>gerencia software e hardware</b> e promovem uma interface com o usuário.</p>
+<p>Com relação ao número de programas suportados na memória são divididos em <b>monotarefa e multitarefa</b> e com
+    relação ao número de usuários suportados em <b>monousuário e multiusuário</b>.</p>
+<p>Quanto à sua arquitetura, podem ser classificados em:</p>
+<ul>
+    <li><b>Monolíticos:</b> Todos os <b>serviços essenciais centralizados no mesmo kernel,</b> ou seja, rodando juntos
+        em um espaço privilegiado. É portanto <b>otimizado para desempenho.</b> Ex: windows e linux</li>
+    <li><b>Microkernel:</b> Possui um <b>kernel que só fornece os recursos mínimos necessários</b> ao sistema, com
+        <b>outros serviços</b> oferecidos através de <b>programas servidores</b> que rodam como processos separados. É
+        portanto <b>focado em segurança.</b> Ex: QNX, Minix</li>
+</ul>
+
+<h3>Estrutura</h3>
+<figure >
+    <img src="/static/img/arquitetura_basica_so.png" alt="Arquitetura básica de um sistema operacional">
+    <figcaption>Arquitetura básica de um sistema operacional, diagrama do próprio autor.</figcaption>
+</figure>
+<p>O <b>kernel</b> é o <b>núcleo do sistema operacional</b> e é ele que faz a ponte entre hardware e software.</p>
+<p>O <b>Shell</b> é uma interface que traduz os comandos do usuário em <b>chamadas de sistema (system calls)</b>, que
+    são <b>requisições seguras</b> para que o kernel execute tarefas.</p>
+<p>O próprio kernel <b>opera em um modo privilegiado</b> e impõe as regras de segurança, protegendo a si mesmo e o
+    hardware de acessos indevidos vindos dos programas do usuário, garantindo assim a <b>confiabilidade e a segurança de
+        todo o sistema</b>.</p>
+
+<h3>Modos de acesso</h3>
+<p>Como mecanismo de proteção de sua confiabilidade e segurança o sistema operacional oferece diferentes modos de
+    acesso.</p>
+<p>No <b>modo usuário</b> o processador fica <b>impedido</b> de executar chamadas inseguras (ou <b>instruções
+        privilegiadas</b>), enquanto no <b>modo Kernel</b> elas são <b>permitidas</b> ao processador.</p>
+
+<h2>Processos e Threads</h2>
+<p>Processos são <b>estruturas criadas no SO para execução dos programas.</b></p>
+<p>Para funcionarem corretamente, processos possuem <b>espaços de endereços de memória reservados,</b> bem como um
+    contexto do banco de registradores salvo a cada interrupção (<b>troca de contexto</b>), chamado <b>contexto de
+        hardware</b>.</p>
+<p>Cada processo possui também um <b>contexto de software,</b> que define o <b>Process Identification (PID), o owner</b>
+    (o solicitante)<b>, quotas</b> (quantidade de recursos) e <b>privilégios</b> (permissões).</p>
+<p>Quanto ao estado os processos podem estar:</p>
+<ul>
+    <li><b>em execução</b> (já está no processador)</li>
+    <li><b>prontos para execução</b> (já tem todas as condições para iniciar e está na fila)</li>
+    <li><b>em espera/bloqueados</b> (precisa aguardar alguma condição ou variável para ir para a fila)</li>
+</ul>
+<p>Dentro dos processos temos as <b>Threads,</b> que nada mais são do que fluxos de instrução que podem ser executados
+    em paralelo em um mesmo processo.</p>
+
+<h2>Escalonamento de processos</h2>
+<p>Os processadores recorrem a diversos <b>algoritmos de escalonamento</b> para gerenciar a fila de processos que
+    disputam o tempo do processador.</p>
+<p>A idéia é que <b>todos os processos sejam atendidos</b>, no melhor <b>tempo de resposta</b> possível, com a melhor
+    <b>taxa de utilização de CPU</b>, com menor <b>Turnaround time</b> (o tempo total do processo) e maior
+    <b>Throughput</b> (processos/tempo)</p>
+<p>Esses processos podem ser <b>preemptivos</b> (pequenas interrupções no processador dão a vez a outro processo) <b>ou
+        não preemptivos</b> (o processo no processador fica até terminar, sem interrupções).</p>
+<p>Alguns algoritmos de escalonamento:</p>
+<ul>
+    <li><b>FIFO:</b> <i>First In First Out</i>. Algoritmo de fila por ordem de chegada, não preemptivo.</li>
+    <li><b>SJF:</b> <i>Shortest Job First.</i> Algoritmo de fila por ordem crescente de tempo de execução, não
+        preemptivo.</li>
+    <li><b>Round Robin:</b> <i>Circular.</i> Algoritmo de fila por ordem de chegada, com cada processo recebendo uma
+        <b>fatia do tempo fixa e igual</b> (<i>time slice ou quantum</i>). O processo roda pelo tempo do quantum, sofre
+        uma preempção, passa pro fim da fila, e assim por diante. Preemptivo e com muitas vantagens no atendimento a
+        processos e tempo médio de resposta.</li>
+    <p><i>Obs: existem derivações do Round Robin onde o time slice dos processos pode variar de acordo com o grau de
+            importância deles.</i></p>
+    <li><b>Escalonamento por prioridade:</b> Preemptivo. Processos executados em <b>ordem de maior prioridade</b>.
+        Processos de maior prioridade interrompem os de menor prioridade.</li>
+    <li><b>Escalonamento por múltiplas filas:</b> Preemptivo. Processos são alocados em <b>filas com diferentes níveis
+            de prioridades</b>. Uma fila mais baixa só roda quando uma mais alta já foi executada. Processos podem
+        sofrer <b>incremento de prioridade</b> e mudar de fila para serem atendidos. Cada fila de processos pode ser
+        <b>escalonada com um algoritmo</b> diferente dentre os anteriores.</li>
+</ul>
+
+<h2>Gerenciamento de Memória</h2>
+<p>O bom gerenciamento dos recursos de memória visa <b>controlar a ocupação</b> (registrando os endereços das posições
+    livres e ocupadas) para poder <b>alocar memória</b> (reservar espaço de endereçamento) para os processos criados.
+</p>
+<p>Visa também estabelecer mecanismos de <b>proteção de memória</b> para que um processo não tome recursos de outro e
+    garantir um <b>swapping</b> (troca entre memória principal e secundária) eficiente.</p>
+<h3>Alocação de memória</h3>
+<p>A alocação pode ser <b>contígua simples,</b> usada em sistemas <b>monoprogramáveis ou monotarefas</b>, onde se
+    registra apenas a parte do sistema operacional e o restante fica disponível ao programa do usuário.</p>
+<p>Pode gerar problemas de <b>subutilização</b> (espaço vazio) e, para programas muito grandes, usa-se a técnica de
+    <b>overlay</b> (particionamento dos programas).</p>
+<p>Em sistemas <b>multiprogramáveis ou multitarefas</b> a alocação é <b>particionada.</b></p>
+<p>Aqui também podem ocorrer problemas de <b>subutilização</b> quando muitos programas não usam todo o espaço
+    (<b>fragmentação</b>).</p>
+<p>A alocação pode ser <b>particionada dinamicamente</b> para que cada processo utilize somente o espaço de memória
+    necessário, mas isso não elimina totalmente a <b>fragmentação</b>, uma vez que o espaço fica livre ao fim do
+    processo.</p>
+<p>É necessário recorrer a mecanismos de <b>relocação</b> dos processos na memória para <b>rearranjar processos e
+        liberar espaços livres de memória para outros processos.</b></p>
+<h3>Swap, paginação e segmentação</h3>
+<figure >
+    <img src="/static/img/swap.png" alt="Swap">
+    <figcaption>Swap, diagrama do próprio autor.</figcaption>
+</figure>
+<p>O tamanho de muitos programas é maior que o espaço de memória principal reservado a eles.</p>
+<p><i>Como o computador roda esses programas?</i></p>
+<p>Primeiramente, através da técnica de <b>swapping</b> (troca) a memória principal e secundária, coordenadas pelo
+    <b>SO,</b> realizam as <b>trocas de informação</b> necessárias para que <b>os programas sejam atendidos.</b></p>
+<p>Por meio do artifício da <b>memória virtual,</b> a memória secundária pode agir como uma extensão da memória
+    principal.</p>
+<p>O SO oferece a cada programa um <b>catálogo de endereços virtuais de memória</b> e se encarrega de traduzir esses
+    endereços em <b>endereços físicos</b> quando necessário.</p>
+<p>Sua implementação pode se dar de duas formas:</p>
+<ul>
+    <li><b>Paginação:</b> A memória é dividida em <b>blocos de tamanho fixo</b> (<b>páginas</b> nos programas e
+        <b>frames</b> na RAM). Durante a execução dos programas as <b>páginas</b> são transferidas para os <b>frames</b>
+        da memória principal de acordo com a demanda.</li>
+    <li><b>Segmentação:</b> Os blocos tem <b>tamanho variável</b> (<b>segmentos</b>) e são criados de acordo com a
+        estrutura dos programas (códigos, dados, pilhas…). Embora facilitem o compartilhamento e organização lógica do
+        código durante as trocas, pode ocorrer fragmentação externa, pois é mais fácil que hajam “espaços vazios” entre
+        blocos de tamanho desigual.</li>
+</ul>
+
+<h2>Sincronização entre Processos</h2>
+<p>Sincronização é a orquestração da comunicação entre processos e seus recursos, podendo ser realizada através do
+    <b>compartilhamento de variáveis ou via mensageria</b>.</p>
+<p>Por exemplo, um processo pode gravar recursos como dados em um <b>buffer</b> (espaço temporário de memória) para ser
+    consumido por outros processos por exemplo.</p>
+<p>Dessa forma as etapas de gravação e leitura devem estar perfeitamente sincronizadas para evitar a chamada <b>condição
+        de corrida,</b> onde por falta de sincronização dois processos acessam um mesmo recurso simultaneamente e pode
+    ocorrer o acesso a um dado errado ou faltante.</p>
+<h3>Sincronização via exclusão mútua (compartilhamento de variáveis)</h3>
+<p>Uma das formas de se combater as condições de corrida é desenvolver mecanismos de <b>exclusão mútua de recursos</b>,
+    assim um recurso compartilhado só pode ser acessado por <b>um processo por vez.</b></p>
+<p>Uma das <b>soluções de hardware</b> para garantir a exclusão mútua de recursos é <b>desabilitar interrupções,</b>
+    assim sempre que um processo inicia e usa um recurso compartilhado, um <b>outro processo não pode interrompê-lo,</b>
+    tendo que <b>aguardar</b> portanto a <b>execução completa.</b> Isso ocorre por meio do <b>desligamento temporário do
+        mecanismo de multitarefa</b>, garantindo que nenhum outro processo possa sequer <b>tentar</b> acessar o recurso
+    compartilhado.</p>
+<p>Uma das <b>soluções de software</b> é a utilização dos chamados <b>semáforos:</b> variáveis binárias que <b>sinalizam
+        quando um recurso está ou não em uso</b>, um processo só pode iniciar portanto com um recurso sinalizado como
+    livre.</p>
+<p>A <b>região crítica</b> é o trecho de um código que lida com recursos compartilhados.</p>
+<p>É necessário garantir sempre que os protocolos da <b>região crítica</b> estejam sendo executados corretamente sob o
+    risco de deixar processos aguardando a liberação de recursos por tempo indefinido (<b>starvation</b>).</p>
+<h3>Troca de mensagem</h3>
+<p>É possível realizar a sincronização de processos por meio da troca de mensagens.</p>
+<p>Isso pode ocorrer por meio da <b>comunicação direta,</b> onde dois processos atuam num esquema emissor/receptor ou
+    por meio de <b>comunicação indireta,</b> onde a comunicação é intermediada por meio de uma <b>mailbox ou port.</b>
+</p>
+<h3>Deadlocks</h3>
+<p>Um <b>deadlock</b> é um impasse. Os processos ficam eternamente travados, esperando um evento ou recurso que nunca
+    ocorrerá.</p>
+<p>Os <b>deadlocks</b> ocorrem quando as seguintes 4 condições são satisfeitas:</p>
+<ul>
+    <li>Devido à <b>exclusão mútua</b>, um recurso compartilhado só pode ser acessado por <b>um processo por vez.</b>
+    </li>
+    <li>Um processo pode <b>segurar um recurso</b> que já tem ao mesmo tempo que <b>espera por outro.</b> Isso se chama
+        <b>posse e espera de recurso (hold and wait).</b></li>
+    <li>A <b>Não Preempção</b> é a condição em que um recurso não pode ser tomado à força de um processo. Ele deve ser
+        liberado voluntariamente pelo processo que o detém.</li>
+    <li>Quando processos aguardam a liberação de recursos de outros processos, numa lógica circular, temos a <b>espera
+            circular.</b></li>
+</ul>
+<p>O SO deve atuar no sentido de <b>prevenir, detectar, diagnosticar e solucionar os deadlocks.</b> Muitas vezes essa
+    solução de dá escolhendo <b>sacrificar um processo menos crítico</b> ou realizar a <b>preempção de um recurso</b>
+    para quebrar o deadlock.</p>
+<p><i>Vale ressaltar que a maioria dos sistemas operacionais de uso geral (como Windows e Linux) adota a estratégia de
+        <b>ignorar o problema</b> (Estratégia do Avestruz), assumindo que deadlocks são <b>raros demais para justificar
+            o custo de performance dos mecanismos de prevenção ou detecção</b>.</i></p>
+
+<h2>Gerência de Dispositivos de Entrada e Saída</h2>
+<p>Para lidar com diferentes dispositivos de entrada e saída (I/O) os sistemas operacionais, por meio de subsistemas de
+    I/O, implementam, para cada um dos dispositivos, <b>interfaces</b> que intermediam a relação entre <b>dispositivos
+        de I/O e placas controladoras.</b></p>
+<p><b>Placas controladoras</b> são dispositivos destinados especificamente a tratar dispositivos I/O, já as interfaces
+    mencionadas são os <b>device drivers</b> ou simplesmente <b>drivers.</b></p>
+<p>Essa interação <b>controladora/driver</b> é <b>vantajosa para o processador</b> pois o poupa de se preocupar com cada
+    dispositivo de entrada e saída.</p>
+<p>Além disso, essa abordagem torna mais abrangente o leque de escolha de dispositivos I/O possíveis, independentemente
+    do processador e sendo portanto <b>mais vantajosa ao usuário</b>.</p>
+<h3>Sistema de arquivo</h3>
+<p>Podemos entender <b>arquivo</b> como um conjunto de informações armazenado.</p>
+<p>O <b>Sistema de arquivo</b> é o responsável pela organização desses arquivos na memória secundária.</p>
+<p>Existem duas maneiras de <b>alocar</b> os blocos de arquivo em disco:</p>
+<ul>
+    <li><b>Sequência não estruturada de bytes:</b> se um arquivo é composto por n blocos de bytes, procuram-se n espaços
+        vazios para que os <b>blocos</b> sejam <b>alocados em sequência</b>. Torna a <b>leitura mais rápida</b> mas
+        <b>aumenta a fragmentação</b> externa.</li>
+    <li><b>Alocação indexada:</b> cada <b>bloco de arquivo</b> é <b>guardado em qualquer espaço vazio,</b> sem a
+        necessidade de uma sequência. A localização dos blocos se dá por um <b>bloco indexador</b> que mapeia as
+        posições dos blocos. <b>Elimina a fragmentação externa</b> ao custo de ser <b>um pouco mais lento</b> e precisar
+        de <b>um pouco mais de espaço</b> devido ao bloco índice.</li>
+</ul>
+<p>E para recapitular, os <b>métodos de acesso</b> aos registros de um arquivo em um sistema de arquivos podem ser
+    divididos em <b>acesso sequencial</b>, onde o sistema de arquivos passa por todos os registros em sequência até
+    chegar no registro em questão ou <b>acesso randômico,</b> onde se vai de maneira direta ao registro desejado.</p>
+<h3>Gerência de Ocupação no Disco</h3>
+<p>Os sistemas de arquivo, via de regra, utilizam uma das duas técnicas abaixo para descobrir quais blocos estão
+    ocupados e quais estão livres:</p>
+<ul>
+    <li><b>Bitmap:</b> é criado um mapa <b>mapa visual de disco</b>, representando blocos livres e ocupados com 0 e 1,
+        respectivamente.</li>
+    <li><b>Listas encadeadas:</b> Uma lista de blocos onde cada bloco aponta para o próximo, que indica se está
+        preenchido (P) ou vazio (H) ), seu endereço inicial e tamanho.</li>
+</ul>
+<p>A alocação do espaço em disco pode se dar de três formas:</p>
+<ul>
+    <li><b>Alocação contígua:</b> assim como na <b>sequência não estruturada de bytes,</b> os blocos de um arquivo são
+        salvos em blocos vizinhos. Cria-se uma <b>tabela de alocação</b> que guarda o endereço do primeiro bloco e a
+        quantidade de blocos usadas;</li>
+    <li><b>Alocação indexada:</b> cada <b>bloco de arquivo</b> é <b>guardado em qualquer espaço vazio,</b> sem a
+        necessidade de uma sequência e a localização se dá por um <b>bloco indexador</b></li>
+    <li><b>Alocação encadeada:</b> é semelhante à <b>alocação indexada</b> no sentido de distribuir os arquivos ao longo
+        de qualquer espaço vazio. Mas no lugar de um bloco índice, os blocos tem reservados dentro de si espaços para o
+        endereçamento do próximo bloco.</li>
+</ul>
