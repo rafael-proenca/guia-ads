@@ -124,3 +124,13 @@ ul {
 .primeiro-periodo-disciplinas{
   background-color: #00FFFF;
 }
+
+#iframe_lampada {
+  width: 100%;
+  min-height: 35vh;
+  height: 100%;
+
+  overflow: hidden;
+  scrolling: no;
+
+}

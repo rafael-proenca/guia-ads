@@ -57,7 +57,7 @@ p {
     <p>JavaScript é a linguagem de programação que adiciona interatividade e comportamento dinâmico às páginas web. Sua lógica é baseada em algoritmos.</p>
     <ul>
         <li><strong>Algoritmo:</strong> É uma sequência de passos lógicos e finitos para resolver um problema. Em programação, o algoritmo é traduzido para uma linguagem que o computador entende.</li>
-        <li><strong>Variáveis:</strong> São "recipientes" para armazenar dados. Podem ser declaradas com <code>let</code> (para valores que podem mudar), <code>const</code> (para valores constantes) ou <code>var</code> (forma mais antiga, menos recomendada).</li>
+        <li><strong>Variáveis:</strong> São "recipientes" para armazenar dados. Podem ser declaradas com <code>let</code> (para valores que podem mudar e tem escopo de bloco), <code>const</code> (para valores constantes) ou <code>var</code> (valores que podem mudar e tem escopo de função. Forma mais antiga, menos recomendada).</li>
         <li><strong>Comandos de Entrada e Saída:</strong>
             <ul>
                 <li><strong>Saída:</strong> <code>alert()</code> exibe uma caixa de alerta, e <code>console.log()</code> escreve informações no console do navegador (útil para depuração).</li>
@@ -99,6 +99,21 @@ function apagaLampada() {
 }
 </code>
     </pre>
+
+<h4>Css (arquivo style.css):</h4>
+    <pre>
+<code>
+function acendeLampada() {
+  document.getElementById('imagem').src='https://www.w3schools.com/js/pic_bulbon.gif';
+}
+
+function apagaLampada() {
+  document.getElementById('imagem').src='https://www.w3schools.com/js/pic_bulboff.gif';
+}
+</code>
+    </pre>
+
+    <iframe id="iframe_lampada" src="static\pages\menu\pdp\01-law\lampada.html"></iframe>
 
     <h2>Conclusão: Pontos Principais</h2>
     <ul>
