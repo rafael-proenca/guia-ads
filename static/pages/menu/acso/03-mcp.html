@@ -1,0 +1,226 @@
+<h1>Memória e Componentes do Processador</h1>
+<h2>Memória</h2>
+<p>Computadores modernos funcionam segundo a arquitetura de Von Newman, ou seja, são compostos por uma <b>unidade de
+        processamento lógico/matemático e controle</b> que interage com <b>uma memória.</b></p>
+<p>A localização de um dado ou instrução na memória do computador é chamada de <b>endereço de memória.</b>O acesso a
+    esse endereço pode ser de forma <b>sequencial</b> (percorrendo toda a memória até a posição desejada, como
+    antigos HDs) ou, como ocorre hoje nos computadores modernos, de forma <b>randômica</b> (acesso direto, sem
+    necessidade de percorrer a lista ou acessar a vizinhança, como SSDs e a memória RAM ).</p>
+<p>Cabe atentar que nesse contexto <b>“randômico”</b> não significa sem ordem, e sim acesso a <b>qualquer endereço</b>
+    na memória.</p>
+<p>Os tipos de memória podem ser classificados em níveis. Em todos os níveis uma coisa em comum é a capacidade de
+    executar operações de <b>leitura e escrita</b>.</p>
+<p>As diferenças se darão em termos de <b>custo por bit, volatilidade, velocidade e capacidade de armazenamento</b> e a
+    distribuição entre eles no sistema de armazenamento torna o computador uma ferramenta eficiente, barata e acessível.
+</p>
+<h3>Os níveis de memória são:</h3>
+<figure>
+    <img src="/static/img/hierarquia_memoria.png" alt="Diagrama de níveis de memória">
+    <figcaption>Diagrama de níveis de memória, diagrama do próprio autor.</figcaption>
+    <ul>
+        <li><b>Registradores:</b> memória interna da <b>CPU (Processador)</b>. Armazena dados do processo <b>em execução
+                naquele exato momento</b> na CPU. <i>(Mais Rápido, Menor Capacidade, Maior Custo, Volátil)</i></li>
+        <li><b>Memória Cache (esconderijo):</b> intermediária entre memória principal (RAM) e CPU(processador). Armazena
+            os
+            dados da memória RAM <b>acessados com mais frequência ou com mais chance de serem usados</b>, reduzindo o
+            Gargalo de Von Newman.</li>
+        <li><b>Principal:</b> É a <b>memória RAM</b> que armazena. Também chamada de <b>memória de trabalho,</b> é onde
+            <b>todos os programas e dados em execução</b> são carregados.
+        </li>
+        <li><b>Secundária:</b> Não volátil (se mantém sem energia). Armazena <b>permanentemente</b> programas, SO,
+            dados,
+            arquivos. <i>(Mais Lento, Maior Capacidade, Menor Custo, Permanente)</i></li>
+        <li><b>OBS: Memórias Terciárias ou de Backup (Opcional)</b> - <b>Dispositivos de armazenamento não voláteis,</b>
+            de
+            acesso ainda mais lento, geralmente usados para arquivamento ou backup de grandes volumes de dados como
+            nuvem e
+            hds externos.</li>
+        <li><b>Tempo de acesso:</b> é o tempo necessário para se acessar uma informação na memória. Mais rápida, menor o
+            tempo de acesso.</li>
+    </ul>
+
+    <h2>Memória Cache e Memória Principal</h2>
+    <p>Memória Cache se coloca entre a memoria do processador e a memória principal que visa mitigar o <b>Gargalo de Von
+            Newman</b> (processamento ocioso devido ao fato de o processador ser mais rápido que a memória principal).
+    </p>
+    <p>O acesso ao conteúdo da memória se dá através do endereço nas chamadas <b>células de memória,</b> componentes
+        eletrônicos que armazenam os bits de informação e que são organizadas de forma matricial.</p>
+    <p>A <b>memória principal</b> é formada por uma <b>matriz de capacitores</b> que armazenam o <b>bit</b> (carregado
+        para
+        '1', descarregado para '0') por um breve período de tempo.</p>
+    <p>Justamente devido a essa <b>natureza temporária dos capacitores</b>, eles precisam ser “refrescados”,
+        “relembrados”
+        de sua carga periodicamente, uma operação chamada <b>refresh</b>.</p>
+    <p>Por isso essa memória é chamada de <b>DRAM - Dynamic Random Access Memory.</b></p>
+    <p>A <b>memória cache</b> é constituída pelo chamado <b>circuito flip-flop</b>, uma rede de <b>transistores</b> que
+        fazem com que o circuito <b>dispense refresh e seja mais rápidas no acesso</b>, mas gera <b>mais calor</b> e
+        fica
+        <b>mais custoso.</b>
+    </p>
+    <p>Também o circuito fica com uma <b>baixa densidade de integração</b> (muito espaço necessário para armazenar um
+        bit) .
+    </p>
+    <p>Como mantém os dados sem o <b>refresh</b> são chamadas de <b>SRAM - Static Random Access Memory.</b></p>
+    <h3>Princípio de localidade</h3>
+    <p>A memória cache armazena o que é mais usado. Para saber o que precisa ser armazenado no cache os computadores
+        usam o
+        <b>princípio da localidade</b> que consiste em dois fundamentos:
+    </p>
+    <ul>
+        <li><b>Princípio de localidade espacial:</b> Se foi usado um dado, provavelmente a vizinhança será usada</li>
+        <li><b>Princípio de localidade temporal:</b> Se foi usado um dado, ele provavelmente será reutilizado em breve.
+        </li>
+    </ul>
+    <p>Quando o processador encontra o que precisa na SRAM (cache) temos o <b>cache hit.</b></p>
+    <p>Do contrário, temos o <b>cache miss.</b> Em caso de cache miss o processador <b>acessa o DRAM (principal), aplica
+            o
+            princípio de localidade e traz para o SRAM as informações, liberando espaço necessário caso precise.</b></p>
+    <p>Para escolher o bloco a ser substituído o processador pode utilizar diversos algoritmos, sendo os mais comuns o
+        <b>FIFO(fila, First In First Out), LFU (Least Frequently Used – menos frequentemente usado) e LRU (Least
+            Recently
+            Used – menos recentemente usado).</b>
+    </p>
+    <h3>Mapeamento</h3>
+    <p>O <b>mapeamento</b> entre os blocos da memória principal e cache pode se dar de <b>3 maneiras</b> :</p>
+    <ul>
+        <li><b>Mapeamento Direto:</b> Cada bloco da memória principal tem <b>uma única posição específica na cache</b>
+            onde
+            pode ser guardado.</li>
+        <p>É simples e rápido, mas <b>pouco flexível</b>, pois caso dois blocos da principal tenham mesma posição no
+            cache e
+            sejam necessários, o processador é obrigado a escolher somente um por vez para ficar na cache.</p>
+        <li><b>Mapeamento Totalmente Associativo:</b> Qualquer bloco da memória principal pode ser colocado em
+            <b>qualquer
+                posição da cache</b> .</li>
+        <p>É muito flexível, mas complexo e <b>lento</b> para encontrar o dado, pois o processador precisa varrer todo o
+            cache para encontrar o dado, uma vez que não sabe seu endereço exato.</p>
+        <li><b>Mapeamento Associativo por Conjuntos:</b> É um <b>meio-termo.</b> A cache é dividida em "conjuntos", e um
+            bloco da memória principal pode ser colocado em qualquer posição dentro de um conjunto específico.</li>
+        <p>É a abordagem mais usada hoje, equilibrando velocidade e flexibilidade, <b>pois cada bloco tem um endereço e
+                só
+                se varre um pequeno bloco.</b></p>
+    </ul>
+
+    <h2>Arquitetura e Componentes do Processador</h2>
+    <p>Processador e CPU (central processing unity) são a mesma coisa.</p>
+    <p>A função do processador é repetidor <b>ciclo de instrução</b> dos programas de maneira <b>ininterrupta</b>,
+        enquanto
+        o computador estiver ligado.</p>
+    <p>Internamente o processador é constituído de uma <b>Unidade de Controle (UC), uma Unidade Lógico Aritmética (ULA)
+            e um
+            Banco de Registradores.</b></p>
+    <p>As etapas do <b>ciclo de instrução</b> são: <b>Busca da instrução</b> na memória , Decodificação da instrução,
+        <b>Busca de operandos</b> (os dados manipulados), <b>Execução de instrução, Escrita de resultado</b> (output).
+    </p>
+    <h3>Componentes do processador</h3>
+    <ul>
+        <li><b>Barramento interno:</b> Responsável pela <b>comunicação interna.</b> Transmite informação entre <b>UC,
+                ULA e
+                Banco de Registradores.</b></li>
+        <p>Sua <b>taxa de transmissão ( em bps - bits por segundo) é produto entre largura</b> (em bits) <b>e
+                frequência</b>
+            (em hertz) do barramento.</p>
+        <li><b>Clock:</b> funciona como o <b>compasso musical para o computador.</b></li>
+        <p>Sua frequência corresponde ao <b>número de ciclos por segundo</b> no processador.</p>
+        <p>1GHz corresponde a 1 bilhão de ciclos por segundo.</p>
+        <li><b>Unidade de Controle (UC):</b> <b>Rege todos os processos e componentes</b>. É o <b>maestro.</b></li>
+        <p>Ela é responsável pelas <b>etapas de busca e decodificação da instrução</b>.</p>
+        <p>Também coordena a <b>busca de operandos</b> que são armazenados no <b>Banco de Registradores.</b></p>
+        <li><b>Unidade Lógico Aritmética (ULA):</b> É o conjunto de <b>portas lógicas e circuitos lógicos</b> que
+            <b>executam a instrução</b>.
+        </li>
+        <p>A <b>ULA fornece o resultado, e a UC coordena a etapa de escrita</b> desse resultado no <b>Banco de
+                Registradores</b>.</p>
+        <li><b>Banco de registradores:</b> Memória interna do processador. <b>Armazena o s dados que estão sendo
+                usados</b>
+            bem como <b>os resultados finais das instruções</b> processadas na ULA.</li>
+    </ul>
+    <figure>
+        <img src="/static/img/componentes_do_processador.png" alt="Componentes do processador">
+        <figcaption>Componentes do processador, diagrama do próprio autor.</figcaption>
+    </figure>
+    <h3>Registradores</h3>
+    <p>Podem ser <b>de uso geral</b> ou <b>específicos</b>.</p>
+    <p><b>Registradores Gerais</b> são <b>flexíveis,</b> podendo ser usados para armazenar muitos tipos de dados e
+        resultados de operações.</p>
+    <p>Já os <b>registradores específicos</b> são <b>inflexíveis</b> quanto à sua função pré determinada. Alguns
+        exemplos:
+    </p>
+    <ul>
+        <li><b>Program Counter:</b> Registrador focado em armazenar o <b>endereço de memória da próxima instrução.</b>
+        </li>
+        <p>É nosso <b>marcador de páginas.</b></p>
+        <li><b>Instruction Register:</b> Registra <b>o que está sendo executado</b> no exato momento .</li>
+        <li><b>REM (Registrador de Endereço de Memória) ou MAR (Memory Address Register):</b> guarda o <b>endereço de
+                uma
+                posição de memória para uma operação.</b></li>
+        <li><b>RDM (Registrador de Dados de Memória) ou MDR (Memory Data Register):</b> guarda <b>temporariamente</b> o
+            dado
+            de uma operação de leitura ou escrita.</li>
+    </ul>
+
+    <h2>Família e Evolução dos Processadores</h2>
+    <h3>ISA - Instruction Set Architecture</h3>
+    <p>Um “esquema” do funcionamento de determinada CPU.Representa uma <b>família de processadores,</b> descrevendo
+        tipos de
+        dados, instruções, modelos de registradores, etc… como x86 ou ARM.</p>
+    <p>Processadores de uma mesma família <b>são compatíveis e garantem o mesmo resultado para as mesmas instruções.</b>
+    </p>
+    <p>De forma técnica, é uma definição <b>formal e abstrata do modelo de operação da máquina, de forma independente de
+            sua
+            implementação física.</b></p>
+    <h3>Evolução de processadores</h3>
+    <ul>
+        <li><b>Coprocessadores aritméticos:</b> Os antigos processadores Intel focavam em processamentos de inteiros.
+        </li>
+        <p>Os coprocessadores foram desenvolvidos então para <b>agilizar o processamento de números de ponto
+                flutuante</b>.
+            Hoje são incorporados.</p>
+        <li><b>Pipelining:</b> os processadores quebram o processo de execução de uma instrução em múltiplos estágios
+            sequenciais (<b>pipeline</b>)</li>
+        <li><b>Arquitetura superescalar:</b> Múltiplas instruções iniciadas num mesmo clock permitem que <b>instruções
+                sejam
+                executadas simultaneamente em diferentes pipelines</b></li>
+        <li><b>Processadores multicore:</b> cada core é visto como um processador, permitindo a execução de <b>múltiplos
+                fluxos de instrução simultâneos</b>.</li>
+        <p>o Gargalo de von Newman é acentuado, pois os cores compartilham o barramento.</p>
+        <li><b>Predição de Desvios com Execução Especulativa de Instruções:</b> Instruções que testam uma condição são
+            chamadas de <b>instruções de desvio</b> e representam um problema computacional, pois o processador aguarda
+            o
+            cálculo dessas instruções para executar as subsequentes.</li>
+        <p>Como contorno o processador <b>calcula especulativamente</b> um dos possíveis fluxos e armazena.</p>
+        <p>Caso tenha acertado o fluxo, usa o resultado armazenado. Quando a predição erra, o processador precisa
+            <b>descartar todos os resultados das instruções especulativas que já entraram no pipeline</b> (um processo
+            chamado de pipeline flush ou esvaziamento do pipeline) e então r<b>ecomeçar o processo de busca a partir do
+                endereço correto do desvio</b> (o que tem significativa penalidade na performance
+        </p>
+        <li><b>Outras melhorias:</b> aumento do clock, refrigeração mais eficiente.</li>
+    </ul>
+
+    <h2>I/O - Input/Output</h2>
+    <p>São os dispositivos de entrada e saída que atuam como <b>interfaces de comunicação entre processador e mundo
+            externo</b>, podendo ser um usuário humano ou uma máquina.</p>
+    <p>Os dispositivos podem ser de <b>entrada, saída ou híbridos</b> e a comunicação com o processador se dá por meio
+        de
+        <b>controladores, drivers e mecanismos de interrupções</b>.
+    </p>
+    <p>Um ponto interessante no que tange aos dispositivos de entrada e saída está em seus diferentes tipos de
+        <b>conexão</b>, sendo os mais comuns as <b>portas paralelas e seriais,</b> além de <b>entradas usb, firewire e
+            hdmi.</b>
+    </p>
+    <h3>Sistema de interrupções</h3>
+    <p>Para atender às solicitações dos dispositivos de entrada e saída o computador recorre a um <b>sistema de
+            interrupções.</b></p>
+    <p>Ao ocorrer uma <b>IRQ’s (Interruption Requests)</b> destes dispositivos o <b>PIC (Programable Interruption
+            Controller)</b> gerencia e organiza esses pedidos para o <b>CPU</b> <b>pausar os processos</b> em execução,
+        <b>executar as IRQ’s</b> e por fim <b>retomar os processo</b> pausados.
+    </p>
+    <p>As interrupções podem ser <b>de hardware</b> (causada pelos periféricos), <b>de software</b> (causadas pelo
+        gerenciamento de recursos do SO) e <b>exceções</b> (uma má execução de software, um código quebrado).</p>
+    <p>Também são classificadas em <b>mascaráveis</b>, quando <b>não precisam de tratamento imediato</b>, e <b>não
+            mascaráveis</b>, o oposto .</p>
+    <h3>DMA - Direct Memory Access</h3>
+    <p>O <b>DMA</b> é um recurso que delega ao <b>controlador DMA</b> (um chip especializado) a tarefa de <b>transferir
+            dados diretamente para a memória RAM, liberando o processador</b> para coisas mais importantes, melhorando
+        sua
+        performance.</p>

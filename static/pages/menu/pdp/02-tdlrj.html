@@ -1,0 +1,182 @@
+<h1>Tomando Decisão e Laços de Repetição em JavaScript</h1>
+
+<h2>01 - Estrutura Condicional if/else e Operador Ternário</h2>
+<p>Estruturas condicionais permitem que um programa execute diferentes blocos de código com base em condições que podem
+    ser verdadeiras ou falsas.</p>
+<ul>
+    <li><strong>if:</strong> Executa um bloco de código se a condição for verdadeira.</li>
+    <li><strong>if...else:</strong> Executa um bloco de código se a condição for verdadeira e outro bloco se for falsa.
+    </li>
+    <li><strong>if...else if...else:</strong> Testa múltiplas condições em sequência. É útil para cenários com várias
+        possibilidades.</li>
+    <li><strong>Operador Ternário (<code>? :</code>):</strong> É uma forma compacta de escrever uma declaração if...else
+        em uma única linha, melhorando a legibilidade para condições simples.</li>
+</ul>
+<h3>Exemplo de if...else if...else:</h3>
+<pre>
+<code>
+let idade = 25;
+
+if (idade < 16) {
+    console.log("Não eleitor");
+} else if (idade >= 18 && idade < 65) {
+    console.log("Eleitor Obrigatório");
+} else {
+    console.log("Eleitor Facultativo");
+}
+</code>
+    </pre>
+<h3>Exemplo de Operador Ternário:</h3>
+<pre>
+<code>
+let idade = 18;
+idade<18 ? console.log("Menor de idade") : console.log("Maior de idade");
+//ou
+let idade = 18;
+idade<18 ? console.log("Menor de idade") : idade<60 ? console.log("Adulto") : console.log("Idoso");
+</code>
+    </pre>
+<h2>02 - Estrutura Condicional Switch Case</h2>
+<p>O <code>switch</code> é uma alternativa ao <code>if...else if...else</code>, ideal para quando se precisa testar uma
+    única variável contra múltiplos valores possíveis.</p>
+<ul>
+    <li><strong>case:</strong> Define um dos valores a serem comparados com a variável.</li>
+    <li><strong>break:</strong> Encerra a execução do <code>switch</code>. Se omitido, o código continuará a executar os
+        próximos <code>case</code>s.</li>
+    <li><strong>default:</strong> Bloco de código a ser executado se nenhum dos <code>case</code>s corresponder ao valor
+        da variável.</li>
+</ul>
+<h3>Exemplo de switch case:</h3>
+<pre>
+<code>
+let mes = 8;
+let nomeMes;
+
+switch (mes) {
+  case 1:
+    nomeMes = "Janeiro";
+    break;
+  case 8:
+    nomeMes = "Agosto";
+    break;
+  default:
+    nomeMes = "Mês inexistente";
+}
+console.log("O mês escolhido é: " + nomeMes); // Saída: O mês escolhido é: Agosto
+</code>
+    </pre>
+
+<h2>03 - Laços de Repetição While e Do...While</h2>
+<p>Laços de repetição (ou loops) executam um bloco de código repetidamente enquanto uma condição for verdadeira.</p>
+<ul>
+    <li><strong>while:</strong> Testa a condição <strong>antes</strong> de cada execução do bloco. Se a condição for
+        falsa desde o início, o bloco nunca é executado.</li>
+    <li><strong>do...while:</strong> Testa a condição <strong>depois</strong> de cada execução do bloco. Isso garante
+        que o bloco de código seja executado pelo menos uma vez.</li>
+</ul>
+<h3>Exemplo de while:</h3>
+<pre>
+<code>
+// Exemplo com o laço 'while'
+console.log("--- Exemplo com while ---");
+let i = 5;
+
+while (i < 5) {
+  console.log("O valor de i é: " + i);
+  i++;
+}
+
+console.log("Loop 'while' finalizado. Valor final de i: " + i);
+
+
+// Exemplo com o laço 'do-while'
+console.log("\n--- Exemplo com do-while ---");
+let j = 5;
+
+do {
+  console.log("O valor de j é: " + j);
+  j++;
+} while (j < 5);
+
+console.log("Loop 'do-while' finalizado. Valor final de j: " + j);
+</code>
+    </pre>
+
+<h2>04 - Laços de Repetição for, for...in e for...of</h2>
+<p>A estrutura <code>for</code> e suas variações são as mais utilizadas para criar laços de repetição, por serem mais
+    compactas e organizadas.</p>
+<ul>
+    <li><strong>for:</strong> É o laço mais tradicional. A inicialização da variável, o teste da condição e o
+        incremento/decremento são definidos em uma única linha.</li>
+    <li><strong>for...in:</strong> Percorre as <strong>propriedades (chaves)</strong> de um objeto.</li>
+    <li><strong>for...of:</strong> Percorre os <strong>valores</strong> de objetos iteráveis, como Arrays e Strings.
+    </li>
+    <li>Tanto no <strong>for...in quanto no for...of,</strong> um novo "escopo" é criado para a variável a cada iteração do loop.
+        Portanto, <strong>const é a escolha ideal,</strong> a menos que a variável precise sofrer alguma alteração no interior do loop.
+        É uma boa prática de programação dar às suas variáveis a menor permissão possível. Se ela não precisa mudar, ela
+        não deve poder mudar <strong>(Princípio do Menor Privilégio).</strong>
+    </li>
+</ul>
+<h3>Exemplos de laços <code>for</code>:</h3>
+<h4>for (tradicional):</h4>
+<pre>
+<code>
+console.log("Contagem Regressiva:")
+for (let i = 5; i>= 0; i--){
+  console.log(i);
+}
+console.log("DECOLAR!!!");
+</code>
+    </pre>
+<h4>for...in (percorrendo objeto):</h4>
+<pre>
+<code>
+const usuario = {
+  //propriedades
+  nome: "user",
+  idade: "18",
+  email:"abcd@wxyz.com",
+  //métodos  
+  apresentacao: function () {
+    return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu email é ${this.email}.`;
+  }
+}
+//acesso estático
+console.log(usuario.nome);
+console.log(usuario.apresentacao());
+//acesso dinâmico
+for (const propriedade in usuario){
+  console.log(`${propriedade} : ${usuario[propriedade]}`);
+}
+//arrays
+const cars = ["Saab", "Volvo", "BMW"];
+for (const car in cars) {
+  console.log(`Carro ${car}: ${cars[car]}`);
+}
+
+</code>
+    </pre>
+<h4>for...of (percorrendo array):</h4>
+<pre>
+<code>
+//arrays
+const cars = ["Saab", "Volvo", "BMW"];
+for (const car of cars) {
+  console.log(`Carro: ${car}`);
+}
+</code>
+    </pre>
+
+<h2>Conclusão: Pontos Principais</h2>
+<ul>
+    <li><strong>Estruturas de Decisão:</strong> O <code>if/else</code> é flexível e ideal para testar múltiplas
+        condições e intervalos. O <code>switch</code> é mais limpo e organizado para testar uma única variável contra
+        valores específicos.</li>
+    <li><strong>Estruturas de Repetição:</strong> O <code>while</code> testa a condição no início. O
+        <code>do...while</code> testa no final, garantindo ao menos uma execução.</li>
+    <li><strong>O poder do <code>for</code>:</strong> O laço <code>for</code> é a estrutura de repetição mais comum e
+        versátil. Use <code>for...in</code> para propriedades de objetos e <code>for...of</code> para valores de
+        iteráveis como arrays.</li>
+    <li><strong>Escolha Certa:</strong> A escolha da estrutura correta (condicional ou de repetição) é fundamental para
+        criar um código claro, eficiente e sem erros.</li>
+</ul>

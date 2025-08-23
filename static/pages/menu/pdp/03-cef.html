@@ -1,0 +1,296 @@
+<h2>Coleções e funções</h2>
+
+
+<h3>Array</h3>
+<p>
+    Podemos entender o <strong>array</strong> como uma variável composta usada para armazenar dados. Um array pode
+    conter <strong>elementos de vários tipos, que não precisam ser constantes</strong>.
+</p>
+
+
+
+<pre>
+<code>let valorInicial =  1;
+var meuArray = ["maçã", 1, 1.234, true, valorInicial, valorInicial + 3, valorInicial+=1, valorInicial+=1];
+
+for (const item of meuArray) {
+  console.log(item);
+}
+</code>
+</pre>
+
+<p>
+    Por também ser um objeto, um array pode ser iniciado com um <strong>construtor</strong>, onde podemos
+    especificar o <strong>array vazio, de tamanho definido ou já com seus elementos.</strong>
+</p>
+
+
+
+<pre>
+<code>//array vazio
+let meuNovoArray01 = new Array();
+console.log(meuNovoArray01);
+//array com tamanho definido
+let meuNovoArray02 = new Array(10);
+console.log(meuNovoArray02);
+//array com valores
+let meuNovoArray03 = new Array("maçã", 1, 1.234, true, valorInicial, valorInicial + 3, valorInicial+=1, valorInicial+=1);
+console.log(meuNovoArray03);</code>
+</pre>
+
+
+<p>
+    <strong>Métodos de array</strong>
+</p>
+<p>
+    Abaixo, alguns métodos de array:
+</p>
+<ul>
+
+    <li><strong>Adição: unshift(), push(),splice()</strong> adicionam respectivamente no começo, no fim e combo
+        remoção de n elementos + adição em uma posição específica. Ex
+
+
+
+        <pre>
+<code>let meuArray = [2,3,4,6,6,6,7,8,9];
+console.log(meuArray);
+meuArray.unshift(1);
+console.log(meuArray);
+meuArray.push(10);
+console.log(meuArray);
+// splice(índice, número de remoções, valor inserido)
+meuArray.splice(4,2,5);
+console.log(meuArray);</code>
+</pre>
+
+    </li>
+</ul>
+<ul>
+
+    <li><strong>Remoção: shift(), pop(),splice()</strong> removem respectivamente no começo, no fim e remoção de n
+        elementos se não acrescentarmos adição. Ex
+
+
+
+        <pre>
+<code>let meuArray = [1,1,2,3,4,5,5,6,6,7,8,9,10,10];
+console.log(meuArray);
+meuArray.shift();
+console.log(meuArray);
+meuArray.pop();
+console.log(meuArray);
+// splice(índice, número de remoções, valor inserido)
+meuArray.splice(5,2);
+console.log(meuArray);</code>
+</pre>
+
+    </li>
+</ul>
+<ul>
+
+    <li><strong>Ordenação: </strong>podemos usar o <strong>sort() </strong>para ordenar alfabeticamente,
+        <strong>revert() </strong>para reverter a ordem do array. Para ordenar de forma
+        <strong>decrescente</strong>, podemos <strong>combinar </strong>ambos<strong>.</strong>
+
+
+
+
+        <pre>
+<code>let meuArray = [10,4,7,1, "Pera", "Maçã"];
+console.log(meuArray);
+meuArray.reverse();
+console.log(meuArray);
+meuArray.sort();
+console.log(meuArray);
+meuArray.reverse();
+console.log(meuArray);</code>
+</pre>
+
+    </li>
+</ul>
+
+
+
+<h3>Arrays Multidimensionais</h3>
+
+<p>
+    Em Javascript um array multidimensional é um <strong>Array de Arrays </strong> que representam
+    <strong>matrizes e tabelas</strong>. Para <strong>acessar os elementos </strong>utilizamos um número “n” de
+    pares de colchetes, onde n é a dimensão desta matriz.
+</p>
+<p>
+    Um método importante é o método <strong>console.table(), </strong>que permite representar como tabela, no
+    lugar de array.
+</p>
+<p>
+    Os <strong>métodos </strong>de arrays unidimensionais <strong>também funcionam </strong>com arrays
+    multidimensionais.
+</p>
+<p>
+    Exemplo:<br><br>
+</p>
+
+
+
+<pre>
+<code>
+console.log("Matriz 2 dimensões");
+let multiArray = [
+  ["Rafael", 1, 1.2],
+  ["Laura", 7, 1.82, "coluna a mais"],
+  ["Pedro", null, "teste"],
+];
+console.log(multiArray);
+console.log(multiArray[1]);
+console.log(multiArray[1][3]);
+
+console.table(multiArray);
+console.table(multiArray[1]);
+console.table(multiArray[1][3]);
+
+console.log("Matriz 3 dimensões");
+let multiArray02 = [
+  [["Rafael", 1, 1.2],
+  ["Laura", 7, 1.82, "coluna a mais"],
+  ["Pedro", null, "teste"]],
+  [1, 2, 3, 4, 5]
+];
+console.log(multiArray02);
+console.log(multiArray02[0]);
+console.log(multiArray02[0][2]);
+console.log(multiArray02[0][2][2]);
+
+console.table(multiArray02);
+console.table(multiArray02[0]);
+console.table(multiArray02[0][2]);
+console.table(multiArray02[0][2][2]);
+</code>
+</pre>
+
+
+<h3>Funções</h3>
+<p>
+    Podemos entender funções como códigos encapsulados que podem ser invocados ou chamados em outro trecho. Em
+    <em>Javascript</em> funções podem ser declaradas de 5 formas diferentes:
+</p>
+<ol>
+
+    <li><strong>Funções de declaração (<em>Functions Declaration</em>):</strong> O nome da função vem depois da palavra
+        reservada <em>function.</em></li>
+
+    <li><strong>Funções de expressão (<em>Functions Expression</em>): </strong>A função é armazenada em uma variável.
+    </li>
+
+    <li><strong>Funções flecha (<em>Arrow Functions</em>): </strong>Uma reescrita das funções de expressão, usando o
+        operador ‘=>’.</li>
+
+    <li><strong>Função construtora (<em>Function Constructor</em>): </strong>Constroem objetos ao serem invocadas com a
+        palavra ‘new’.</li>
+
+    <li><strong>Função geradora (<em>Generator Function</em>): </strong>Cria um <strong>objeto iterator</strong>. A
+        função não é executada em sua completude, mas sim até o próximo item da iteração, sempre em sequência. Usa-se
+        <strong>* </strong>e a palavra reservada <em>yield</em>.
+    </li>
+</ol>
+
+
+
+<pre>
+<code>
+console.log("1. Function Declaration: sem parâmetros");
+function soma(){
+  return 2 + 2;
+}
+console.log(soma());
+
+console.log("1. Function Declaration: com parâmetros");
+function somaComParametros(a, b){
+  return a + b;
+}
+console.log(somaComParametros(10, 20));
+
+console.log("2. Function Expression: sem parâmetros");
+const soma2 = function(){
+  return 2 + 2;
+}
+console.log(soma2());
+console.log("2. Function Expression: com parâmetros");
+const somaComParametros2 = function(a, b){
+  return a + b;
+}
+console.log(somaComParametros2(10, 20));
+
+console.log("3. Arrow Function: sem parâmetros");
+const soma3 = () => 2+2;
+console.log(soma3());
+
+console.log("3. Arrow function: com parâmetros");
+const somaComParametros3 = (a, b) => a + b;
+console.log(somaComParametros3(10, 20));
+
+console.log("4. Função Construtora");
+function carro(marca, modelo, ano){
+  this.marca = marca;
+  this.modelo = modelo;
+  this.ano = ano;
+}
+const meuCarro = new carro("Ford", "Mustang", 1969);
+console.log(meuCarro);
+for(const prop in meuCarro){
+  console.log(`${prop} : ${meuCarro[prop]}`); 
+}
+
+console.log("5. Função Geradora: sem parâmetros");
+function* geradora(){
+  yield 'Valor 1';
+  yield 'Valor 2';
+  yield 'Valor 3';
+}
+
+console.log(geradora().next());
+console.log(geradora().next());
+console.log(geradora().next());
+for (item of geradora()){
+  console.log(item);
+}
+
+console.log("5. Função Geradora: com parâmetros");
+function* geradoraComParametros(a,b,c){
+  yield a;
+  yield b;
+  yield c;
+}
+const ger = geradoraComParametros(10, 20, 30);
+console.log(ger.next());
+console.log(ger.next()); 
+console.log(ger.next());  
+
+for(item of geradoraComParametros(100, 200, 300)){
+  console.log(item);
+}
+</code>
+</pre>
+
+
+<h3>Recursividade</h3>
+<p>
+    À definição de uma sub-rotina (função ou método) que <strong>chama a si mesma</strong> chamamos de recursividade.
+    Funções recursivas
+    são usadas frequentemente com <strong>condicionais, para evitar um loop infinito</strong>.
+</p>
+
+<pre>
+<code>
+console.log("Contagem Regressiva com Recursividade");
+function contagemRegressiva(inicio, fim){
+  if(inicio>fim){
+    console.log(inicio);
+    contagemRegressiva(inicio-1, fim);
+  }else{
+    console.log("BOOM!!!!!!!!!!!!!");
+  }
+}
+contagemRegressiva(10, 0);
+</code>
+</pre>

@@ -1,0 +1,13 @@
+
+body{
+    align-content: center;
+    
+text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #55AA00;
+    min-height: 100vh;
+}
+h3 {
+    color: #000055;
+}
